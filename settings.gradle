@@ -1,1 +1,1 @@
-include ':app', ':POCenter', ':OuNews', ':SlideBack', ':ChangeSkin', ':EasyReader', ':Netease'
+include ':app', ':POCenter', ':OuNews', ':SlideBack', ':ChangeSkin', ':EasyReader', ':Netease', ':NewsClient', ':KanDian', ':ViewGroupDemo', ':ViewRolling'

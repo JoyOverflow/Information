@@ -10,10 +10,14 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/ChangeSkin" />
             <option value="$PROJECT_DIR$/EasyReader" />
+            <option value="$PROJECT_DIR$/KanDian" />
             <option value="$PROJECT_DIR$/Netease" />
+            <option value="$PROJECT_DIR$/NewsClient" />
             <option value="$PROJECT_DIR$/OuNews" />
             <option value="$PROJECT_DIR$/POCenter" />
             <option value="$PROJECT_DIR$/SlideBack" />
+            <option value="$PROJECT_DIR$/ViewGroupDemo" />
+            <option value="$PROJECT_DIR$/ViewRolling" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
