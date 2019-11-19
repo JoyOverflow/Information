@@ -62,27 +62,27 @@ public class DetailsViewGroup extends ViewGroup {
 
 
 	/**
-	 * 测量当前视图的尺寸
-	 * MeasureSpec类：用来封装父布局传递给子视图的布局要求
-	 * 当设置match_parent=模式EXACTLY
-	 * 设置为wrap_content=模式AT_MOST
-	 * UNSPECIFIED可以将视图按照自己的意愿设置成任意的大小，没有任何限制
+	 * 由父视图调用，测量当前视图的尺寸
+	 * MeasureSpec类：封装父布局传递过来的布局参数
 	 * @param widthMeasureSpec
 	 * @param heightMeasureSpec
 	 */
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
 		//当前视图设置的模式
+		//MeasureSpec.AT_MOST（wrap_content）
+		//MeasureSpec.EXACTLY（match_parent）
+		//MeasureSpec.UNSPECIFIED（可将视图设置成任意大小，没有限制）
 		int widthMode = MeasureSpec.getMode(widthMeasureSpec);
 		int heightMode = MeasureSpec.getMode(heightMeasureSpec);
 
-
+		//由父视图经过计算，传递给子视图的默认宽高
 		int widthSize = MeasureSpec.getSize(widthMeasureSpec);
 		int heightSize = MeasureSpec.getSize(heightMeasureSpec);
 
-
-
+		//当前视图的子视图数
 		final int count = getChildCount();
 		for (int i = 0; i < count; i++) {
 			if (0 == i && -1 != mWebViewHeight) {
@@ -90,21 +90,20 @@ public class DetailsViewGroup extends ViewGroup {
 						widthMeasureSpec,
 						MeasureSpec.EXACTLY + mWebViewHeight
 				);
-			} else {
+			}
+			else {
 				getChildAt(i).measure(widthMeasureSpec, heightMeasureSpec);
 			}
 		}
 
-		if(-1 != mWebViewHeight){
+
+		if(-1 != mWebViewHeight)
 			scrollTo(0, mCurScreen * mWebViewHeight);
-		}else {
+		else
 			scrollTo(0, mCurScreen * getHeight());
-		}
 
-
-		//设置当前视图的尺寸大小
+		//告知父视图，当前视图的尺寸大小
 		setMeasuredDimension(widthSize, heightSize);
-
 	}
 
 
